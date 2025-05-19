@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<div th:replace="fragments/header :: head"></div>
+<body>
+<div th:replace="fragments/navigation :: nav"></div>
+<div class="container ">
+    <div class="row justify-content-center">
+        <div class="col-md-6 mt-5 pt-5">
+            <div class="card rounded-bottom shadow bg-white">
+                <div class="card-header text-center text-white loginSignUpCardHeader">
+                    <h4 class="fw-bold">Your Account</h4>
+                </div>
+                <div class="card-body loginSignUpCardBody">
+                    <form th:action="@{/processUser}" method="post">
+                        <div>
+                            <label for="firstName" class="fw-bold">First Name</label>
+                            <input type="text" id="firstName" th:value="${user.firstName}" name="firstName" class="form-control border" required>
+                            <input type="hidden" name="id" th:value="${user.id}">
+                        </div>
+                        <div>
+                            <label for="lastName" class="fw-bold">Last Name</label>
+                            <input type="text" id="lastName" th:value="${user.lastName}" name="lastName" class="form-control border" required>
+                        </div>
+                        <div>
+                            <label for="email" class="fw-bold">Email</label>
+                            <input type="email" id="email" th:value="${user.email}" name="email" class="form-control border" required>
+                        </div>
+                        <div>
+                            <label for="username" class="fw-bold">Username</label>
+                            <input type="text" id="username" th:value="${user.username}" name="username" class="form-control border" required>
+                        </div>
+                        <div>
+                            <label for="password" class="fw-bold">Password</label>
+                            <input type="password" id="password" th:value="${user.password}" name="password" class="form-control border" required>
+                        </div>
+                        <div class="form-group text-center">
+                            <button type="submit" name="updateButton" value="update" class="btn btn-primary btn-block h6 p-2 col-md-6 mt-3 rounded-pill loginSignUpButton">Update</button>
+                        </div>
+                        <div class="form-group text-center">
+                            <button type="submit" name="deleteButton" value="delete" class="btn btn-primary btn-block h6 p-2 col-md-6 mt-3 rounded-pill loginSignUpButton">Delete</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
