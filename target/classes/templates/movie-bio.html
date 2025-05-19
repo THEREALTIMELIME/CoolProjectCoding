@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<div th:replace="fragments/header :: head"></div>
+<body>
+
+<div th:replace="fragments/navigation :: nav"></div>
+
+<div class="container">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-12 mt-3">
+                <div class="fs-1">
+                    <p><span th:text="${movie.name}"></span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <p class="fs-4"><span th:text="${movie.runTime} + ' minutes | ' + ${movie.rating}" ></span></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <img class="movieImage" th:src="@{'images/' + ${movie.poster}}" style="width: 300px; height:400px"/>
+            </div>
+            <div class="col-md-9">
+                <iframe width="600" height="400" th:src="${movie.trailer}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md fs-3">
+                <p><span th:text="${movie.description}"></span></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md fs-3">
+                <p><b><span th:text="'Directors: '"></span></b><span th:text="${movie.director}"></span></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md fs-3">
+                    <p><b><span th:text="'Studio: '"></span></b><span th:text="${movie.studio}"></span></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body></html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<div th:replace="fragments/header :: head"></div>
+
+<body class="d-flex align-items-center justify-content-center vh-100 loginSignUpBody">
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card rounded-bottom shadow bg-white">
+                <div class="card-header text-center text-white loginSignUpCardHeader">
+                    <h4 class="fw-bold">Sign Up to your New Account</h4>
+                </div>
+                <div class="card-body loginSignUpCardBody">
+                    <form th:action="@{/processSignUpPage}" method="post" th:object="${user}">
+                        <div class="form-floating  mx-5 mb-3">
+                            <input type="text" id="firstName"  th:field="*{firstName}" class="form-control" placeholder="First Name" required>
+                            <label for="firstName">First Name</label>
+                            <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span>
+                        </div>
+                        <div class="form-floating  mx-5 mb-3">
+                            <input type="text" id="lastName" th:field="*{lastName}" class="form-control" placeholder="Last Name" required>
+                            <label for="lastName">Last Name</label>
+                        </div>
+                        <div class="form-floating  mx-5 mb-3">
+                            <input type="email" id="email" th:field="*{email}" class="form-control" placeholder="Email" required>
+                            <label for="email">Email</label>
+                            <div th:if="${emailErrorMessage}">
+                                <span th:text="${emailErrorMessage}" style="color: red"></span>
+                            </div>
+                            <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+                        </div>
+
+                        <div class="form-floating  mx-5 mb-3">
+                            <input type="text" id="username" th:field="*{username}" class="form-control" placeholder="Username" required>
+                            <label for="username">Username</label>
+                            <div th:if="${usernameErrorMessage}">
+                                <span th:text="${usernameErrorMessage}" style="color: red"></span>
+                            </div>
+                        </div>
+                        <div class="form-floating  mx-5 mb-3">
+                            <input type="text" id="phoneNumber" th:field="*{phoneNumber}"  class="form-control" placeholder="Phone Number" required>
+                            <label for="phoneNumber">Phone Number</label>
+                            <div th:if="${phoneNumberErrorMessage}">
+                                <span th:text="${phoneNumberErrorMessage}" style="color: red"></span>
+                            </div>
+                            <span th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}" style="color: red"></span>
+                        </div>
+                        <div class="form-floating  mx-5">
+                            <input type="password" id="password" name="password"  class="form-control" placeholder="Password" required>
+                            <label for="password">Password</label>
+                            <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" style="color: red; white-space: pre-line"></span>
+                        </div>
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn fs-3 btn-primary btn-block h6 p-2 col-md-6 mt-3 rounded-pill loginSignUpButton">Sign up</button>
+                        </div>
+                        <div class="text-center mt-3">
+                            <form th:action="@{/showUserLogin}" method="get">
+                                <button class="btn fs-4 btn-secondary btn-block my-3 col-md-9 rounded-pill signUpButton" value="ignore" formnovalidate>Don't have an account? Login In</button>
+                            </form>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

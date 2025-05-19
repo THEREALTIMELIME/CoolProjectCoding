@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<div th:replace="fragments/header :: head"></div>
+<body>
+
+<div th:replace="fragments/navigation :: nav"></div>
+
+<div>
+    <nav>
+        <ul>
+            <li><a href="/homePage" th:href="@{/homePage}">Home</a></li>
+            <li><a href="news.asp">News</a></li>
+            <li><a href="/sessionEndLogout" th:href="@{/sessionEndLogout}">Sign Out</a></li>
+        </ul>
+        <div>
+            <a th:href="@{'/processUserBio?id=' + ${session.user.id}}" class="fs-3 font-weight-bold text-white" th:text="${session.user.firstName} + ' ' + ${session.user.lastName}"></a>
+        </div>
+    </nav>
+</div>
+</body>
+</html>

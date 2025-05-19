@@ -1,0 +1,28 @@
+.loginSignUpBody {
+    background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%);
+    font-family: 'Arial', sans-serif;
+}
+
+
+.loginSignUpCardHeader {
+    background-color: #5c6bc0;
+    border-radius: 15px 15px 0 0;
+}
+
+.loginButton{
+    background: grey;
+}
+
+.placeholder {
+  color: red;
+  opacity: 1; /* Firefox */
+}
+
+.signUpButton {
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+}
+
+.signUpButton:hover {
+    background: linear-gradient(45deg, #2575fc, #6a11cb);
+}
+
